@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+<% if (drink === undefined || drink === null) { %>
+    <h1>Oops, Not Found 404</h1>
+<% } else { %>
+    <h2>
+        <%= drink.title %>
+    </h2>
+    <% if (user && user.id === drink.user.id) { %>
+        <a href="/drinks/<%= drink.id %>/edit">Edit</a>
+        <%- include('destroy', {drink}); %>
+    <% } %>
+    <p>
+        <img src="<%= drink.photo %>" alt="drink photo">
+    </p>
+    <p>About:<br><%= drink.about %></p>
+    <p>Recipe<br><%= drink.recipe %></p>
+    <hr>
+    <h2>Comments</h2>
+    <% if (user) { %>
+        <%- include('../comments/add', {drink_id: drink._id.toString()}); %>
+    <% } else { %>
+        Please <a href="/auth/google">LOG IN</a> to comment on this drink
+    <% } %>
+    <% drink.comments.forEach( comment=>{ %>
+        <!--    <p><%= comment.message %></p>-->
+        <%- include('../comments/show', {comment, drink}); %>
+    <% }) %>
+<% } %>
+
+<%- include('../partials/footer') %>

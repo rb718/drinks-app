@@ -1,0 +1,7 @@
+<form action="/comment/create" method="post">
+    <p><label>Comment:
+            <input type="text" name="message" required/>
+        </label></p>
+    <input hidden type="text" value=<%= drink.id %> name="drink">
+    <button type="submit">Add New Comment</button>
+</form>

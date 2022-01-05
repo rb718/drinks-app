@@ -1,0 +1,6 @@
+<form action="/comment/<%= comment.id %>?_method=put" method="post" style="display: none" id="edit_<%= comment.id %>">
+    <p><label>Comment:
+            <input type="text" name="message" value="<%= comment.message %>" required/>
+        </label></p>
+    <button type="submit">Update Comment</button>
+</form>

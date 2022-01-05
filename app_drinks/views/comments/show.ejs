@@ -1,0 +1,26 @@
+<!--Todo: add author and dates and edit form inline-->
+<% if (comment) { %>
+    <div>
+        <p>
+        <span>
+            <%= comment.user.name %>
+        </span>
+            <span>Created: <%= comment.created_at.toLocaleString() %></span>
+            <span>Updated: <%= comment.updated_at.toLocaleString() %></span>
+            <% if (user && user.id === comment.user.id) { %>
+                <span>
+                    <button onclick="document.getElementById('edit_<%= comment.id %>').style='display:block'">
+                    Edit
+                    </button>
+                </span>
+                <span>
+                    <%- include('destroy', {comment, drink}); %>
+                </span>
+            <% } %>
+        </p>
+        <p><%= comment.message %></p>
+    </div>
+    <% if (user && user.id === comment.user.id) { %>
+        <%- include('edit', {comment}); %>
+    <% } %>
+<% } %>

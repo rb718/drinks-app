@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+
+<form action="/drinks/<%= drink.id %>?_method=put" method="post">
+    <p>
+        <label>Title:
+            <input type="text" name="title" value="<%= drink.title %>" required/>
+        </label>
+    </p>
+    <p>
+        <label>Photo:
+            <input type="url" name="photo" value="<%= drink.photo %>" required/>
+        </label>
+    </p>
+    <p>
+        <label>About:
+            <input type="text" name="about" value="<%= drink.about %>" required/>
+        </label>
+    </p>
+    <p>
+        <label for="recipe">Recipe:</label>
+        <br/>
+        <br/>
+        <textarea name="recipe" required><%= drink.recipe %></textarea>
+    </p>
+    <button type="submit">Submit</button>
+</form>
+
+<%- include('../partials/footer') %>

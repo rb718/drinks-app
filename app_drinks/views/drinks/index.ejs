@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<% if (drinks.length !== 0){ %>
+    <% drinks.forEach(drink=>{ %>
+        <h2>
+            <a href="/drinks/<%= drink.id %>">
+                <%= drink.title %>
+            </a>
+        </h2>
+        <p>
+            <img src="<%= drink.photo %>" alt="drink photo">
+        </p>
+        <hr/>
+    <% }) %>
+<% } else { %>
+    <p>No drinks added yet. Add new <a href="/drinks/new">here</a></p>
+<% } %>
+
+<%- include('../partials/footer') %>

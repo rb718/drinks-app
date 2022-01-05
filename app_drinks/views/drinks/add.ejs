@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+
+<form action="/drinks/create" method="post">
+    <p>
+        <label>Title:
+            <input type="text" name="title" required/>
+        </label>
+    </p>
+    <p>
+        <label>Photo:
+            <input type="url" name="photo" required/>
+        </label>
+    </p>
+    <p>
+        <label>About:
+            <input type="text" name="about" required/>
+        </label>
+    </p>
+    <p>
+        <label for="recipe">Recipe:</label>
+        <br/>
+        <br/>
+        <textarea name="recipe" required></textarea>
+    </p>
+    <button type="submit">Submit</button>
+</form>
+
+<%- include('../partials/footer') %>
